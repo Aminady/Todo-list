@@ -1,1 +1,3 @@
-console.log("Oui");
+import navigate from "./navbar";
+
+// navigate()
