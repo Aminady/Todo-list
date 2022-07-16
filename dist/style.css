@@ -81,3 +81,7 @@ p:hover {
     box-shadow: 1px 5px 8px rgba(190, 189, 189, 0.589);
     cursor: pointer;
 }
+
+@media screen {
+    
+}
