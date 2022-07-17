@@ -1,3 +1,7 @@
-import navigate from "./navbar";
+import createNavBar from "./navbar";
+import createDashBoard from "./dashboard";
 
-// navigate()
+createNavBar()
+createDashBoard()
+
+console.log(dashboard);

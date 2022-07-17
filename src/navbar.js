@@ -1,8 +1,8 @@
-export default function navigate() {
+export default function createNavBar() {
     const navContainer = document.createElement('div');
     document.body.appendChild(navContainer)
+    navContainer.classList = "nav-bar"
     return navContainer.innerHTML = `
-    <div class="nav-bar">
     <h1>TASK AWAY</h1>
     <div class="search-bar">
     <input type="text" name="search" id="search" placeholder="Search" >
@@ -12,6 +12,5 @@ export default function navigate() {
     <span id="add-svg" class="material-symbols-outlined">add_box</span>
     <span id="profile-svg" class="material-symbols-outlined">account_circle</span>
     </div>
-  </div>
-  `
-}
+    `
+  };
