@@ -1,10 +1,10 @@
-export default function createModales(){ 
+export default function createModals(){ 
 
-    const modaleContainer = document.createElement('div') 
-    document.body.appendChild(modaleContainer)
-    modaleContainer.classList = "modale-container"
-    modaleContainer.innerHTML = `
-        <div class="modale"></div>
+    const modalContainer = document.createElement('div') 
+    document.body.appendChild(modalContainer)
+    modalContainer.classList = "modal-container"
+    modalContainer.innerHTML = `
+        <div class="modal"></div>
         <form class="form" action="" method="get">
         <div class="input-container">
         <input type="text" name="title" id="title" placeholder="Tasks" minlength="4" maxlength="20" required>
@@ -25,10 +25,10 @@ export default function createModales(){
         <button type="button" class="submit">Add to your list</button>
         </form>
         `
-    const modale = document.querySelector('.modale')
+    const modal = document.querySelector('.modal')
     
-    modale.addEventListener("click", () => {
-        modale.parentNode.remove();
+    modal.addEventListener("click", () => {
+        modal.parentNode.remove();
     });
       
     }
