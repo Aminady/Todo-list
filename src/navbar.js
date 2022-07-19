@@ -1,4 +1,4 @@
-export default function createNavBar() {
+export default (function createNavBar() {
     const navContainer = document.createElement('div');
     document.body.appendChild(navContainer)
     navContainer.classList = "nav-bar"
@@ -6,11 +6,12 @@ export default function createNavBar() {
     <h1>TASK AWAY</h1>
     <div class="search-bar">
     <input type="text" name="search" id="search" placeholder="Search" >
-    <span id="search-svg" class="material-symbols-outlined">search</span>  
+    <img id="search-svg" src="../icons/search.svg" alt="search">
     </div>
     <div class="add-profile"> 
-    <span id="add-svg" class="material-symbols-outlined">add_box</span>
-    <span id="profile-svg" class="material-symbols-outlined">account_circle</span>
+    <img id="add-svg" src="../icons/add.svg" alt="add button">
+    <img id="profile-svg" src="../icons/profile.svg" alt="profile">
+    
     </div>
     `
-  };
+  })();

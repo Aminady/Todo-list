@@ -1,6 +1,8 @@
+import { mainContainer } from ".";
+
 export default function createDashBoard() {
     const dashboard = document.createElement('div');
-    document.body.appendChild(dashboard);
+    mainContainer.appendChild(dashboard);
     dashboard.classList = 'dashboard';
     return dashboard.innerHTML = `
     <h3 class="dash-title">TODO LIST</h3>
