@@ -1,4 +1,5 @@
-import { mainContainer } from ".";
+import { mainContainer, tasksProjectsContainer} from ".";
+import {injectProjects, injectTasks} from "./injectFunction"
 
 function createDashBoard() {
   const dashboard = document.createElement('div');
@@ -17,25 +18,17 @@ function dashboardStyle() {
   const dashBtns = document.querySelector('.dash-btns');
   const taskBtn = document.querySelector('.tasks');
   const projectBtn = document.querySelector('.projects');
-
-  // dashBtns.addEventListener('click', (e) => {
-  //   e.target.style.backgroundColor = "white";
-  //   e.target.style.color = "black";
-  //   e.target.style.fontSize = 18 + "px";
-  //   e.target.style.boxShadow = "1px 5px 8px rgba(145, 144, 144, 0.589)";
-
-  //   console.log(e.target.style);
-  // })
-
   taskBtn.addEventListener('click', (e) => {
+    tasksProjectsContainer.innerHTML = injectTasks()
     e.target.nextElementSibling.style = "";
     e.target.style.backgroundColor = "white";
     e.target.style.color = "black";
     e.target.style.fontSize = 18 + "px";
     e.target.style.boxShadow = "1px 5px 8px rgba(145, 144, 144, 0.589)";
   }) 
-
+  
   projectBtn.addEventListener('click', (e) => {
+    tasksProjectsContainer.innerHTML = injectProjects()
     e.target.previousElementSibling.style = "";
     e.target.style.backgroundColor = "white";
     e.target.style.color = "black";

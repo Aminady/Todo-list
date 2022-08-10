@@ -42,7 +42,14 @@
     transition: transform linear 100ms;
 }
 
-#add-svg:hover {
+#add-projects {
+        cursor: pointer;
+        width: 40px;
+        border: 4px solid white;
+        transition: transform linear 100ms;      
+}
+
+#add-svg:hover, #add-projects:hover {
     transform: scale(1.2) rotate(180deg);
     
 }
@@ -53,6 +60,16 @@
     background: white;
     border: 2px solid white;
     transition: transform linear 100ms;
+}
+
+.trash-svg {
+    cursor: pointer;
+    width: 15px;
+    grid-column: 4;
+}
+
+.trash-svg:hover {
+    background-color: red;
 }
 
 #profile-svg:hover {
@@ -87,27 +104,50 @@
     border-left: 1px solid black;
     height: 100%;
     padding-left: 50px;
+    padding-right: 50px;
 }
 
 .tasks-title {
     margin-bottom: 30px;
-}
-
-.tasks-checkbox {
+    
+    gap: 325px;
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    justify-content: flex-start;}
+
+.tasks-checkbox {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
     margin-bottom: 10px;
 }
 
+.tasks-checkbox:hover {
+    animation-name: dashing;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+.h3 {
+    border-bottom: 2px solid black;
+}
+
+.tasksInProjectstitle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
 /*///////////////////////////CHECKBOX//////////////////////////////*/
 input[type="checkbox"] {
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
+    appearance: none;   
     background-color: #fff;
-    /* Not removed via appearance */
     margin: 0;
     font: inherit;
     color: currentColor;
@@ -118,6 +158,8 @@ input[type="checkbox"] {
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
+    
+    grid-column: 3;
 }
 
 input[type="checkbox"]::before {
@@ -184,6 +226,14 @@ p:hover {
         cursor: pointer;
         font-size: 18px;}
 }
+@keyframes dashing {
+    0%{}
+    100%{    background: white;
+        color: black;
+        box-shadow: 1px 5px 8px rgba(238, 233, 233, 0.589);
+        cursor: pointer;
+        font-size: 18px;}
+}
 
 
 /*//////////////////////////////MODALE///////////////////////////////////////*/
@@ -209,6 +259,26 @@ p:hover {
     width: 300px;
     display: grid;
     grid-template-rows: repeat(5, 1fr);
+    font-size: 20px;
+    padding: 10px;
+    background: white;
+    justify-content: center;
+    align-items: end;
+    justify-items: center;
+}
+
+.project-form {
+    z-index: 1;
+    bottom: 50%;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 300px;
+    width: 300px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
     font-size: 20px;
     padding: 10px;
     background: white;
@@ -250,4 +320,10 @@ button {
 button:hover {
     transform: scale(1.2);
     box-shadow: 1px 5px 8px rgba(95, 94, 94, 0.589);
+}
+
+.emptyProjects {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
 }

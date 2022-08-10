@@ -1,3 +1,8 @@
+import { tasksProjectsContainer, dateParser,} from ".";
+// import {create, trashSvg, injectProjects, injectTasks} from "./injectFunction"
+import {injectProjects, injectTasks} from "./injectFunction"
+
+
 function createModals(){ 
 
     const modalContainer = document.createElement('div') 
@@ -34,7 +39,7 @@ function createModals(){
     
 };
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    function submitTest() {
+function submitTasksModal() {
     const modal = document.querySelector('.modal');
 
     const submitModal = document.querySelector('.submit');
@@ -53,16 +58,39 @@ function createModals(){
         let projectsArray = [];
 
         if(tasksOrProjects.value === "tasks-option") {
-                tasksArray.push(new newObject(tasksName.value, dateInput.value, tasksOrProjects.value))
-                console.log(tasksArray.map((a) => a));
-            }
-        if (tasksOrProjects.value === "projects-option") {
-                projectsArray.push(new newObject(tasksName.value, dateInput.value, tasksOrProjects.value))
-                console.log(projectsArray.map((a) => a));
-            }
+            tasksArray.push(new newObject(tasksName.value, dateInput.value, tasksOrProjects.value))
             modal.parentNode.remove();
-            
-        });
+
+            return tasksProjectsContainer.innerHTML += 
+            `
+            <div class="tasks-checkbox"> 
+            <label for="done">${tasksName.value}</label>
+            <label for="done">${dateParser(dateInput.value)}</label>
+            <input type="checkbox" name="tasks" id="done">
+            <img src="../icons/trash.svg" alt="delete" class="trash-svg">
+            </div>
+            `
+        }    
+        
+        if (tasksOrProjects.value === "projects-option") {
+            tasksProjectsContainer.innerHTML = ""
+            injectProjects()
+            projectsArray.push(new newObject(tasksName.value, dateInput.value, tasksOrProjects.value))
+            console.log(projectsArray.map((a) => a));
+        }
+        modal.parentNode.remove();
+        
+    });
+}
+
+
+document.body.addEventListener('click', (e) => {
+    if(e.target.className === 'trash-svg') {
+        e.target.parentElement.remove()
+        
     }
-    
-    export {createModals, submitTest}
+})
+
+export {createModals, submitTasksModal}
+    // console.log(tasksArray.map((a) => a));
+
